@@ -1,0 +1,72 @@
+//databases
+*users
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(255) NOT NULL,
+    nickname VARCHAR(255) DEFAULT '',
+    email VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(255) DEFAULT '',
+    country VARCHAR(255) DEFAULT '',
+    gender VARCHAR(255) DEFAULT '',
+    address VARCHAR(255) DEFAULT '',
+    password VARCHAR(255) NOT NULL
+);
+*reset_codes
+CREATE TABLE reset_codes (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL,
+  code VARCHAR(6) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+*igloos
+CREATE TABLE igloos ( 
+  id INT PRIMARY KEY AUTO_INCREMENT, 
+  igloo_name VARCHAR(255), 
+  igloo_type VARCHAR(255), 
+  coworking_place JSON, 
+  internet JSON, 
+  transport JSON, 
+  equipements JSON, 
+  description VARCHAR(255), 
+  startDate DATE, 
+  endDate DATE, 
+  start_time TIME, 
+  end_time TIME, 
+  animals JSON, 
+  accept_animals BOOLEAN, 
+  habitude BOOLEAN, 
+  fauteil BOOLEAN, 
+  ascenseur BOOLEAN, 
+  cuisine BOOLEAN, 
+  ville VARCHAR(255), 
+  location VARCHAR(255), 
+  price DECIMAL(10,2), 
+  nb_places DECIMAL(5,0), 
+  liked BOOLEAN DEFAULT false, 
+  rate DECIMAL(1,0) DEFAULT 0, 
+  user_id INT, 
+  images TEXT,
+  latitude DOUBLE,
+  longitude DOUBLE,
+  );
+
+INSERT INTO igloos (igloo_name, igloo_type, coworking_place, internet, transport, 
+equipements, description, day, start_time, end_time, animals, accept_animals, habitude, 
+fauteil, ascenseur, cuisine, ville, location, price, nb_places, user_id) 
+VALUES ("Chez Malika", "maison", '["salon"]', '["ADSL","Fibre"]', '["RER", "Bus"]', '["Bureau","Frigo","Parking gratuit"]', 
+"Je m’appelle Julien, je suis responsable marketing dans un grand groupe international. Je suis en télétravail 3 fois par semaine. 
+J’ai un grand appartement en plein centre de Paris, je serai ravi de t’accueillir chez moi pour travailler.A deux pas du metro 6!",
+ '2023-05-01', '10:00:00', '14:00:00', '["Chat"]', true, 'En Musique', false, false, true, 'Paris', 'Paris 75015', 12, 5, 1);
+
+CREATE TABLE chat_messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sender VARCHAR(255) NOT NULL,
+  recipient VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+mdp paypal
+mdp stripe
+H%ts3vCWQPQ$4$X
